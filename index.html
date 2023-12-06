@@ -1,109 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Tvoje Ime - Portfolio</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <style>
-  
-body {
-  padding-top: 56px;
-}
-
-.navbar {
-  background-color: #6ba6ce;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #ffffff;
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-  color: #ffffff;
-}
-
-#about {
-  background-color: #ecf0f1;
-}
-
-#portfolio {
-  background-color: #f8f9fa;
-}
-#contact {
-  background-color: rgb(52, 144, 219);
-  color: black;
-}
-.img-fluid.{ width: 200px; and height: auto; 
-}
-.stil{
-  font-family: 'Hedvig Letters Serif';
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://kit.fontawesome.com/76a0451c5c.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: 'Arial', 'Helvetica', sans-serif;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #navbar-color{
+            background-color: rgba(160, 72, 148, 0.7);
+        }
+        #hamburger{
+            margin-left: 0.5rem;
+            outline: none;
+            box-shadow: none;
+        }
+        #hamburger:focus{
+            box-shadow: 0px 0px 7px rgba(160, 72, 148, 0.7);
+        }
+        @media (max-width: 650px){
+            input{
+                max-width: 300px;
+            }
+            textarea{
+                max-width: 300px;
+            }
+            #mala-slika{
+                max-width: 80px;
+            }
+            #pocetna, #pozadinadiv{
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+            #pozadina-manjidiv{
+                padding-top: 7px;
+                padding-bottom: 7px;
+            }
+            .paragraf{
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 450px){
+            h3{
+                font-size: 20px;
+            }
+            h4{
+                font-size: 17px;
+            }
+            p{
+                font-size: 14px;
+            }
+            #moja-slika{
+                max-width: 140px;
+                height: auto;
+                transition: all 0.3 ease-in-out;
+                align-items: center;
+                display: block;
+            }
+            #logo{
+                max-width: 100px;
+                max-height: 100px;
+            }
+            input{
+                max-width: 200px;
+            }
+            textarea{
+                max-width: 200px;
+            }
+            #pocetna, #pozadinadiv{
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+        #moja-slika{
+            max-width: 180px;
+            border-radius: 50%;
+        }
+        #logo{
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 50%;
+            transition: all 0.2 ease;
+        }
+        .socials{
+            max-width: 100px;
+        }
+        .socials:hover{
+            transform: scale(1.1);
+            transition: all 0.1s ease-in-out;
+            
+        }
+        #moja-slika:hover, #logo:hover, .ikonica:hover{
+            box-shadow: 0px 0px 20px black;
+            transition: all 0.2s ease;
+            transform: scale(1.03);
+        }
+        #omeni:hover{
+            box-shadow: 0 0 15px 0 rgba(160, 72, 148, 0.7);
+            background: linear-gradient(rgb(172, 78, 184), rgb(245, 182, 237));
+            transition: all 0.3s ease, opacity 0.5s ease;
+        }
+        #postignuca:hover{
+          box-shadow: 0 0 15px 0 rgba(160, 72, 148, 0.7);
+          background: linear-gradient(rgb(172, 78, 184), rgb(245, 182, 237));
+          transition: all 0.3s ease, opacity 0.5s ease;
+        }
+        #ciljevi:hover{
+          box-shadow: 0 0 15px 0 rgba(160, 72, 148, 0.7);
+            background: linear-gradient(rgb(172, 78, 184), rgb(245, 182, 237));
+            transition: all 0.3s ease, opacity 0.5s ease;
+        }
+        #zanimljivosti:hover{
+          box-shadow: 0 0 15px 0 rgba(160, 72, 148, 0.7);
+            background: linear-gradient(rgb(172, 78, 184), rgb(245, 182, 237));
+            transition: all 0.3s ease, opacity 0.5s ease;
+        }
+        .nav-item:hover{
+            color: black;
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+        .nav-item a:focus{
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+        #pocetna, #pozadinadiv{
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+       
+        #kontakt, #pocetna, #pozadinadiv, #pozadina-manjidiv{
+            width: 100%;
+            background-image: url(pozadina.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        label, input, textarea{
+            display: block;
+            margin-bottom: 1rem;
+        }
+        input[type="text"], input[type="email"], textarea{
+            width: 450px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            background-color: rgba(244, 221, 177, 0.5);
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus{
+            box-shadow: inset 0px 0px 1rem rgb(218, 100, 208);
+            border: 0;
+            outline: none;
+        }
+        input[type="submit"]{
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(219, 140, 215);
+            color: rgba(160, 72, 148, 0.7);
+        }
+        .soft{
+            border-radius: 1rem;
+        }
+        footer{
+            background-color: rgb(219, 140, 215);
+            color: rgba(160, 72, 148, 0.7);
+            text-align: center;
+            padding: 1rem 0;
+        }
+        footer a{
+            text-decoration: none;
+            color: rgba(160, 72, 148, 0.7);
+            transition: color 0.3s ease;
+        }
+        footer a:hover{
+            color: black;
+        }
+        .ikonica{
+            max-width: 100px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
-  
-
-  <nav class="navbar navbar-expand-lg navbar-light stil">
-    <a class="navbar-brand" href="#">Mina Stefanovic</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#about">O Meni</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Kontakt</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-
-
-  
-  <section id="portfolio" class="bg-light py-5">
-    <div class="container stil">
-      <h2 class="text-center">Portfolio</h2>
-     
-        </div>
-        <div class="container mt-5 stil">
-          <div class="row">
-            <div class="col">
-              <h3 class="mb-3">Obrazovanje</h3>
-              <div class="card">
-                <div class="mx-3">
-              <h5>Prva kragujevacka gimnazija</h5>
-              <div><strong>2020-sada</strong></div>
-              Ucenici sa posebnim sposobnostima za racunarstvo i informatiku.</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">C++</li>
-                <li class="list-group-item">HTML</li>
-                <li class="list-group-item">CSS</li>
-                <li class="list-group-item">JavaScript</li>
-              </ul>
+    <header class="sticky-top"> 
+        <nav class="navbar navbar-light navbar-expand-sm" id="navbar-color">
+            <button class="navbar-toggler" id="hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>              
+            <div class="justify-content-center align-items-center collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav gap gap-md-3 gap-lg-5 align-items-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#pocetna">Početna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#omeni">O meni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#obrazovanje">Obrazovanje</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ciljevi">Ciljevi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#zanimljivosti">Zanimljivosti</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontakt">Kontakt</a>
+                    </li>
+                </ul>
             </div>
-          </div>
-          <div class="container mt-5">
+        </nav>
+    </header>
+    <div class="d-flex justify-content-center align-items-center" id="pocetna">
+        <div class="welcome">
+            <h3 class="pt-2" style="color: rgb(123, 7, 113)"><b>Dobrodošli na moj Portfolio!</b></h3>
+        </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center p-3 p-md-5 p-sm-3" id="omeni">
+        <img src="ja.jpg" alt="" id="logo">
+        <h4 class="pt-3"><b>Mina Stefanovic</b></h4>
+        <p class="text-md-center mb-0 text-sm-start">
+            Zdravo!<br>
+            Zovem se Mina Stefanovic. <br>
+            Učenica sam Prve kragujevačke gimnazije, odeljenja učenika sa posebnim sposobnostima za računarstvo i informatiku.<br>
+            Rođena sam u Kragujevcu 08.01.2006. godine.
+        </p>
+    </div>
+    <div class="d-flex justify-content-center align-items-center" id="pozadinadiv">
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center p-3 p-md-5 p-sm-3" id="obrazovanje">
+        <h4 class="pt-2"><b>Obrazovanje</b></h4>
+        <div class="container mt-5 stil">
             <div class="row">
               <div class="col">
-                
+                <h3 class="mb-3">Obrazovanje</h3>
                 <div class="card">
                   <div class="mx-3">
-                <h5>Osnovna muzicka skola "Dr Miloje Milojevic"</h5>
-                <div><strong>2014-2020</strong></div>
-                </div>
+                <h5>Prva kragujevacka gimnazija</h5>
+                <div><strong>2020-sada</strong></div>
+                Ucenici sa posebnim sposobnostima za racunarstvo i informatiku.</div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Violoncelo</li>
-                  <li class="list-group-item">Teorija muzike</li>
-                  <li class="list-group-item">Solfedjo</li>
-                  <li class="list-group-item">Hor</li>
+                  <li class="list-group-item">C++</li>
+                  <li class="list-group-item">HTML</li>
+                  <li class="list-group-item">CSS</li>
+                  <li class="list-group-item">JavaScript</li>
                 </ul>
               </div>
             </div>
@@ -113,54 +267,101 @@ body {
                   
                   <div class="card">
                     <div class="mx-3">
-                  <h5>Osnovna skola"Dragisa Mihailovic"</h5>
-                  <div><strong>2012-2020</strong></div>
+                  <h5>Osnovna muzicka skola "Dr Miloje Milojevic"</h5>
+                  <div><strong>2014-2020</strong></div>
                   </div>
-                 
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Violoncelo</li>
+                    <li class="list-group-item">Teorija muzike</li>
+                    <li class="list-group-item">Solfedjo</li>
+                    <li class="list-group-item">Hor</li>
+                  </ul>
                 </div>
               </div>
-       
-      </div>
-    </div>
-  </section>
-   
-   <section id="about" class="py-5 ">
-    <div class="container stil">
-      <div class="row">
-        <div class="col-lg-6">
-          <h2>O Meni</h2>
-          <p>Dobrodošli na moj portfolio. </p>
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="col">
+                    
+                    <div class="card">
+                      <div class="mx-3">
+                    <h5>Osnovna skola"Dragisa Mihailovic"</h5>
+                    <div><strong>2012-2020</strong></div>
+                    </div>
+                   
+                  </div>
+                </div>
+         
         </div>
+      </div>
        
-        <div class="col-lg-6">
+    </div>
+    <div class="d-flex justify-content-center align-items-center" id="pozadina-manjidiv">
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center p-3 p-md-5 p-sm-3" id="ciljevi">
+        <h4 class="pt-2"><b>Ciljevi</b></h4>
+        <p class="text-md-center text-sm-start">
+            Upisati i zavrsiti fakultet, i prosiriti svoje znanje od programskim jezicima i web-dizajnu.
+        </p>
+    </div>
+    <div class="d-flex justify-content-center align-items-center" id="pozadina-manjidiv">
+    </div>
+    <div class="d-flex flex-column petidiv p-3 p-md-5 p-sm-3" id="zanimljivosti">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h4 class="pt-2"><b>Zanimljivosti</b></h4>
+        </div>
+        <div class="d-flex flex-row paragraf">
+            <p class="d-flex flex-column text-start pe-3">
+                Volim da treniram i ceo zivot se bavim razlicitim sportovima. <br>
+                Najduze sam trenirala gimnastiku, i najvise je volela. <br>2 godine sam trenirala ritmicku gimnastiku a zatim jos 7 godina sportsku gimnastiku. <br>
+                Osvajala sam brojne nagrade i prolazila i do republickih takmicenja.
+            <br>
+            <img src="gim.jpg" alt="" id="logo">
+          </p>
+        </div>
+            <div class="d-flex flex-row paragraf">
+              <p>
+               Dosta sportova mi je privlacilo paznja i dosta njih sam probala ali nakon gimnastike sam izabrala plivanje. <br>
+               Trenirala sam 2 godine u plivackom klubu "Radnicki 1969".
+            </p> <br> <br> <br>
+            <img src="pliv.jpg" alt="" id="logo">
+        </div>
+        <div class="d-flex flex-row paragraf">
+          <p>
+           U septembru 2022. godine sam krenula u teretanu Park.
+        </p> <br> <br> <br>
+        <img src="teretana.png" alt="" id="logo">
+    </div>
         
-          <img src="mina.jpg" alt="" class="img-fluid rounded-circle ">
+    </div>
+    <div class="d-flex justify-content-center align-items-center" id="pozadinadiv">
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center" id="kontakt">
+        <h4 class="pt-3"><b>Kontakt</b></h4>
+        <div class="contact-form">
+            <form>
+                <label for="name">Ime</label>
+                <input type="text" id="name" class="soft" name="name" required placeholder="Unesite vaše ime ovde..."/>
+                <label for="email">Email</label>
+                <input type="email" id="email" class="soft" name="email" required placeholder="Unesite vaš email ovde..."/>
+                <label for="message">Poruka</label>
+                <textarea id="message" class="soft" name="message" rows="5" required placeholder="Vaša poruka..."></textarea>
+                <input type="submit" class="soft" value="Pošalji"/>
+            </form>
         </div>
-      </div>
     </div>
-  </section>
-
- 
-  <section id="contact" class="py-5">
-    <div class="container stil">
-      <h2 class="text-center">Kontakt</h2>
-      
-      <div class="card">
-        <ul>
-          <li>email:minastefanovic2006@gmail.com</li>
-          <li>instagram:minastefanoviic</li>
-          <li>snapchat:sstefanovicmina</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  
-  <footer class="bg-dark text-white text-center py-3 stil">
-    <p>&copy; 2023 Mina Stefanovic</p>
-  </footer>
-
- 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <footer class="justify-content-center align-items-center">
+        <div>
+            <a href="https://www.instagram.com/minastefanoviic/?next=%2F" target="__blank"><i class="fa-brands fa-square-instagram fa-lg p-2"></i></a>
+            <a href="https://accounts.snapchat.com/v2/welcome" target="__blank"><i class="fa-brands fa-square-snapchat fa-lg p-2"></i></a>
+           
+        </div>
+        <p class="d-flex flex-column pt-3"> &copy; 2023 My Portfolio</p>
+        <div class="d-flex flex-row justify-content-center align-items-center ps-2 pe-2">
+            <div class="d-flex flex-column pe-2"><a href="#">Terms of Service</a></div>
+            <div class="d-flex flex-column pe-2"><a href="#">Privacy Policy</a></div>
+        </div>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
 </body>
 </html>
