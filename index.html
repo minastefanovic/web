@@ -333,8 +333,18 @@
     </div>
         
     </div>
-    <div class="d-flex justify-content-center align-items-center" id="pozadinadiv">
-    </div>
+    <div >
+    <h1 id="recenzije-heading" onclick="openReviewsTab()">Recenzije</h1>
+    <label for="sort">Sortiraj po oceni:</label>
+    <select id="sort" onchange="sortReviews()">
+      <option value="asc">Rastuće</option>
+      <option value="desc">Opadajuće</option>
+    </select>
+    <ul id="reviews-list"></ul>
+  
+    <script src="script.js"></script>
+</div>
+
     <div class="d-flex flex-column justify-content-center align-items-center" id="kontakt">
         <h4 class="pt-3"><b>Kontakt</b></h4>
         <div class="contact-form">
@@ -349,39 +359,7 @@
             </form>
         </div>
     </div>
-    <div class="d-flex flex-column petidiv p-3 p-md-5 p-sm-3" id="reviews">
-      <h4 class="pt-2"><b>Recenzije</b></h4>
-      <div id="review-container"></div>
-      <button onclick="sortReviews(true)">Sortiraj ocene rastuće</button>
-      <button onclick="sortReviews(false)">Sortiraj ocene opadajuće</button>
-  </div>
-
-  <script>
-      const reviews = [
-          { username: 'Korisnik1', text: 'Ovo je odlično!', ocena: 5 },
-          { username: 'Korisnik2', text: 'Moglo bi bolje.', ocena: 3 },
-          { username: 'Korisnik3', text: 'Ocajan rad.', ocena: 1},
-      ];
-      function showReviews(reviews) {
-          const container = document.getElementById('review-container');
-          container.innerHTML = ''; 
-
-          reviews.forEach(review => {
-              const div = document.createElement('div');
-              div.innerHTML = `<strong>${review.username}</strong>: ${review.text} - Ocena: ${review.ocena}`;
-              container.appendChild(div);
-          });
-      }
-
-      showReviews(reviews);
-
-      function sortReviews(ascending) {
-          const sortedReviews = [...reviews];
-          sortedReviews.sort((a, b) => ascending ? a.ocena - b.ocena : b.ocena - a.ocena);
-          showReviews(sortedReviews);
-      }
-  </script>
-  </div>
+    
   
     <footer class="justify-content-center align-items-center">
         <div>
